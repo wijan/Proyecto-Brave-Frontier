@@ -10,5 +10,6 @@ namespace Projecte_Final.Models
         //Tipo del BB (Heal, Supp, Atk)
         public int ID { get; set; }
         public String Nombre { get; set; }
+        //Comentario de prueba de edicion git.
     }
 }
