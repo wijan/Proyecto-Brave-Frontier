@@ -29,5 +29,48 @@ namespace Projecte_Final.Models
         {
             return new ApplicationDbContext();
         }
+        
+        public DbSet<BB> BB { get; set; }
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //Configure domain classes using modelBuilder here
+            //BB
+            modelBuilder.Entity<BB>().HasKey(x => x.ID);
+            modelBuilder.Entity<BB>().HasRequired(x => x.RamaBB);
+            modelBuilder.Entity<BB>().HasRequired(x => x.TipoBB);
+            modelBuilder.Entity<BB>().HasRequired(x => x.GrupalBB);
+            modelBuilder.Entity<BB>().HasRequired(x => x.EfectoBB);
+
+            //Crafteo
+            modelBuilder.Entity<Crafteo>().HasKey(x => x.ID);
+
+            //EfectoEsfera
+            modelBuilder.Entity<EfectoEsfera>().HasKey(x => x.EfectoID);
+
+            //Efectos
+            modelBuilder.Entity<Efectos>().HasKey(x => x.EfectoBBID);
+            
+             
+
+
+
+            modelBuilder.Entity<Blog>().HasKey(x => x.BlogId);
+            modelBuilder.Entity<Post>().HasKey(x => x.PostId);
+            modelBuilder.Entity<Post>().HasRequired(x => x.Blog)
+                                       .WithMany(x => x.Posts)
+                                       .HasForeignKey(x => x.BlogId)
+                                       .WillCascadeOnDelete(true);
+
+
+
+
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+
+
     }
 }

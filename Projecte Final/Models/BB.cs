@@ -7,6 +7,7 @@ namespace Projecte_Final.Models
 {
     public class BB
     {
+        public int ID { get; set; }
         //Habilidades de los personajes
         public String Nombre { get; set; }
         public String BBDesc { get; set; }

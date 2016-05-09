@@ -21,5 +21,6 @@ namespace Projecte_Final.Models
         public int Unidad6ID { get; set; }
         public virtual Personaje Unidad6 { get; set; }
         public int UsuarioID { get; set; }
+        public virtual ApplicationUser Usuario { get; set; }
     }
 }

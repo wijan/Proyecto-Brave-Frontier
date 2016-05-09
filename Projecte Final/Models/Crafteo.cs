@@ -9,5 +9,7 @@ namespace Projecte_Final.Models
     {
         public int ID { get; set; }
         public List<Objeto> Objetos { get; set; }
+        public int ObjetoID { get; set; }
+        public virtual Objeto Objeto { get; set; }
     }
 }
