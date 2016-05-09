@@ -203,12 +203,9 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Afliccion.cs" />
-    <Compile Include="Models\Antiestados.cs" />
-    <Compile Include="Models\AñadirElementos.cs" />
+    <Compile Include="Models\BraveFrontierContext.cs" />
     <Compile Include="Models\Crafteo.cs" />
-    <Compile Include="Models\DebilidadElemental.cs" />
     <Compile Include="Models\Objeto.cs" />
-    <Compile Include="Models\StatDown.cs" />
     <Compile Include="Models\BB.cs" />
     <Compile Include="Models\CondicionAfliccion.cs" />
     <Compile Include="Models\Efectos.cs" />
@@ -217,19 +214,16 @@
     <Compile Include="Models\Equipo.cs" />
     <Compile Include="Models\ES.cs" />
     <Compile Include="Models\Esfera.cs" />
-    <Compile Include="Models\EstadosAlterados.cs" />
     <Compile Include="Models\Genero.cs" />
     <Compile Include="Models\GrupalBB.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MitigacionElemental.cs" />
     <Compile Include="Models\Personaje.cs" />
     <Compile Include="Models\Stats.cs" />
     <Compile Include="Models\RamaBB.cs" />
     <Compile Include="Models\TipoBB.cs" />
     <Compile Include="Models\TipoEsfera.cs" />
     <Compile Include="Models\Unidad.cs" />
-    <Compile Include="Models\VulnerabilidadSpark.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

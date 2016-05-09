@@ -9,5 +9,6 @@ namespace Projecte_Final.Models
     {
         public int EfectoID { get; set; }
         public String Descripcion { get; set; }
+
     }
 }

@@ -5,9 +5,7 @@ using System.Web;
 
 namespace Projecte_Final.Models
 {
-    public class AñadirElementos
+    public class BraveFrontierContext
     {
-        public int ID { get; set; }
-        public List<Elemento> Elementos { get; set; }
     }
 }
