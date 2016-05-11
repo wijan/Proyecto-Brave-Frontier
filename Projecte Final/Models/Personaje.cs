@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -34,15 +35,15 @@ namespace Projecte_Final.Models
 
 
         //BB
-        public int BBID { get; set; }
+        public int? BBID { get; set; }
         public virtual BB BB { get; set; }
 
         //SBB
-        public int SBBID { get; set; }
+        public int? SBBID { get; set; }
         public virtual BB SBB { get; set; }
 
         //UBB
-        public int UBBID { get; set; }
+        public int? UBBID { get; set; }
         public virtual BB UBB { get; set; }
 
 
@@ -54,10 +55,10 @@ namespace Projecte_Final.Models
 
         
         //Descripciones extras
-        public int LSID { get; set; }
+        public int? LSID { get; set; }
         public virtual LS LS { get; set; }
 
-        public int ESID { get; set; }
+        public int? ESID { get; set; }
         public virtual ES ES { get; set; }
 
 
@@ -69,9 +70,13 @@ namespace Projecte_Final.Models
 
 
         //Imágenes
+        [NotMapped]
         public HttpPostedFileBase Imagen { get; set; }
+        [NotMapped]
         public HttpPostedFileBase Icono { get; set; }
+        [NotMapped]
         public HttpPostedFileBase Gif { get; set; }
+        [NotMapped]
         public HttpPostedFileBase GifAtaque { get; set; }
 
 

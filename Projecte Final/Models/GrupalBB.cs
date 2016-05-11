@@ -10,6 +10,6 @@ namespace Projecte_Final.Models
         //Si la habilidad es grupal o individual.
         public int ID { get; set; }
         public String Nombre { get; set; }
-        public virtual List<BB> BBS { get; set; }
+        public virtual List<BB> BBGrupal { get; set; }
     }
 }

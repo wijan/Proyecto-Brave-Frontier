@@ -9,6 +9,6 @@ namespace Projecte_Final.Models
     {
         public int TipoID { get; set; }
         public String Tipo { get; set; }
-        public virtual List<BB> BBS { get; set; }
+        public virtual List<BB> BBTipo { get; set; }
     }
 }
