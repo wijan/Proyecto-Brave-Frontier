@@ -10,7 +10,7 @@ namespace Projecte_Final.Models
         public int ID { get; set; }
         public String Nombre { get; set; }
         public HttpPostedFileBase Imagen { get; set; }
-        public int CrafteoID { get; set; }
+        //public int CrafteoID { get; set; }
         public virtual Crafteo Crafteo { get; set; }
         public String Descripcion { get; set; }
     }

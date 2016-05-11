@@ -50,9 +50,11 @@ namespace Projecte_Final.Models
 
             //Crafteo
             modelBuilder.Entity<Crafteo>().HasKey(x => x.ID);
+            modelBuilder.Entity<Crafteo>().HasRequired(x => x.Objeto).WithOptional(x => x.Crafteo);
 
             //EfectoEsfera
             modelBuilder.Entity<EfectoEsfera>().HasKey(x => x.EfectoID);
+            modelBuilder.Entity<EfectoEsfera>().HasRequired(x => x.Esfera).WithOptional(x => x.Efecto);
 
             //Efectos
             modelBuilder.Entity<Efectos>().HasKey(x => x.EfectoBBID);
@@ -78,8 +80,8 @@ namespace Projecte_Final.Models
             //Esfera
             modelBuilder.Entity<Esfera>().HasKey(x => x.ID);
             modelBuilder.Entity<Esfera>().HasOptional(x => x.Crafteo);
-            modelBuilder.Entity<Esfera>().HasRequired(x => x.TipoEsfera);
-            modelBuilder.Entity<Esfera>().HasRequired(x => x.Efecto);
+            modelBuilder.Entity<Esfera>().HasRequired(x => x.TipoEsfera).WithMany(x => x.Esferas).HasForeignKey(x => x.TipoID);
+            modelBuilder.Entity<Esfera>().HasOptional(x => x.Efecto);
 
             //Genero
             modelBuilder.Entity<Genero>().HasKey(x => x.ID);

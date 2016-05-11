@@ -62,9 +62,9 @@ namespace Projecte_Final.Models
 
 
         //Pre i post evoluciones
-        public int PreEvoNum { get; set; }
+        public int? PreEvoNum { get; set; }
         public virtual Personaje PreEvo { get; set; }
-        public int PostEvoNum { get; set; }
+        public int? PostEvoNum { get; set; }
         public virtual Personaje PostEvo { get; set; }
 
 
