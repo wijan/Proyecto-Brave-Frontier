@@ -10,6 +10,6 @@ namespace Projecte_Final.Models
         //Género del personaje
         public int ID { get; set; }
         public String Nombre { get; set; }
-
+        public virtual List<Personaje> Personajes { get; set; }
     }
 }

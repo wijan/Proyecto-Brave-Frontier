@@ -16,6 +16,8 @@ namespace Projecte_Final.Models
         public int Estrellas { get; set; }
         public int Coste { get; set; }
 
+        public virtual List<Stats> Stats { get; set; }
+
         //Elemento
         public int ElementoID { get; set; }
         public virtual Elemento Elemento { get; set; }
@@ -72,5 +74,11 @@ namespace Projecte_Final.Models
         public HttpPostedFileBase Gif { get; set; }
         public HttpPostedFileBase GifAtaque { get; set; }
 
+
+        //Propiedad de navegacion propia
+        public virtual List<Personaje> Personajes { get; set; }
+
+        //Propiedad de navegacion a Unidad
+        public virtual List<Unidad> Unidades { get; set; }
     }
 }

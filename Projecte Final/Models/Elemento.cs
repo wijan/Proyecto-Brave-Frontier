@@ -15,6 +15,7 @@ namespace Projecte_Final.Models
         public int FuerteVSID { get; set; }
         public virtual Elemento FuerteVS { get; set; }
         public HttpPostedFileBase Icono { get; set; }
-
+        public virtual List<Personaje> Personajes { get; set; }
+        public virtual List<Elemento> Elementos { get; set; }
     }
 }

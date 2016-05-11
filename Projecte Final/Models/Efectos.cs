@@ -55,5 +55,7 @@ namespace Projecte_Final.Models
         public String DebilidadElemental { get; set; }
         public String Angel { get; set; }
         public String ReduccionDaño { get; set; }
+
+        public virtual List<BB> BBS { get; set; }
     }
 }
