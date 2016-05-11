@@ -13,7 +13,7 @@ namespace Projecte_Final.Models
         public int DebilVSID { get; set; }
         public virtual Elemento DebilVS { get; set; }
         public int FuerteVSID { get; set; }
-        public virtual Elemento FuerteVs { get; set; }
+        public virtual Elemento FuerteVS { get; set; }
         public HttpPostedFileBase Icono { get; set; }
 
     }

@@ -9,7 +9,7 @@ namespace Projecte_Final.Models
     {
         //Esfera
         public int TipoID { get; set; }
-        public virtual TipoEsfera Tipo { get; set; }
+        public virtual TipoEsfera TipoEsfera { get; set; }
         public int EfectoID { get; set; }
         public virtual EfectoEsfera Efecto { get; set; }
     }

@@ -51,8 +51,71 @@ namespace Projecte_Final.Models
 
             //Efectos
             modelBuilder.Entity<Efectos>().HasKey(x => x.EfectoBBID);
-            
-             
+
+            //Elemento
+            modelBuilder.Entity<Elemento>().HasKey(x => x.ID);
+            modelBuilder.Entity<Elemento>().HasOptional(x => x.DebilVS);
+            modelBuilder.Entity<Elemento>().HasOptional(x => x.FuerteVS);
+
+            //Equipo
+            modelBuilder.Entity<Equipo>().HasKey(x => x.ID);
+            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad1);
+            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad2);
+            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad3);
+            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad4);
+            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad5);
+            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad6);
+            modelBuilder.Entity<Equipo>().HasRequired(x => x.Usuario);
+
+            //ES
+
+
+            //Esfera
+            modelBuilder.Entity<Esfera>().HasKey(x => x.ID);
+            modelBuilder.Entity<Esfera>().HasOptional(x => x.Crafteo);
+            modelBuilder.Entity<Esfera>().HasRequired(x => x.TipoEsfera);
+            modelBuilder.Entity<Esfera>().HasRequired(x => x.Efecto);
+
+            //Genero
+            modelBuilder.Entity<Genero>().HasKey(x => x.ID);
+
+            //GrupalBB
+            modelBuilder.Entity<GrupalBB>().HasKey(x => x.ID);
+
+            //Objeto
+            modelBuilder.Entity<Objeto>().HasKey(x => x.ID);
+            modelBuilder.Entity<Objeto>().HasOptional(x => x.Crafteo);
+
+            //Personaje
+            modelBuilder.Entity<Personaje>().HasKey(x => x.Numero);
+            modelBuilder.Entity<Personaje>().HasRequired(x => x.Elemento);
+            modelBuilder.Entity<Personaje>().HasRequired(x => x.Genero);
+            modelBuilder.Entity<Personaje>().HasOptional(x => x.BB);
+            modelBuilder.Entity<Personaje>().HasOptional(x => x.SBB);
+            modelBuilder.Entity<Personaje>().HasOptional(x => x.UBB);
+            modelBuilder.Entity<Personaje>().HasOptional(x => x.ES);
+            modelBuilder.Entity<Personaje>().HasOptional(x => x.LS);
+            modelBuilder.Entity<Personaje>().HasOptional(x => x.PreEvo);
+            modelBuilder.Entity<Personaje>().HasOptional(x => x.PostEvo);
+
+            //RamaBB
+            modelBuilder.Entity<RamaBB>().HasKey(x => x.ID);
+
+            //Stats
+            modelBuilder.Entity<Stats>().HasKey(x => x.ID);
+            modelBuilder.Entity<Stats>().HasRequired(x => x.Personaje);
+
+            //TipoBB
+            modelBuilder.Entity<TipoBB>().HasKey(x => x.TipoID);
+
+            //TipoEsfera
+            modelBuilder.Entity<TipoEsfera>().HasKey(x => x.ID);
+
+            //Unidad
+            modelBuilder.Entity<Unidad>().HasKey(x => x.ID);
+            modelBuilder.Entity<Unidad>().HasRequired(x => x.Personaje);
+            modelBuilder.Entity<Unidad>().HasRequired(x => x.Equipo);
+
 
 
 

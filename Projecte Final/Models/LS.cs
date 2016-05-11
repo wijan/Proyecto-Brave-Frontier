@@ -5,8 +5,7 @@ using System.Web;
 
 namespace Projecte_Final.Models
 {
-    public class ES
+    public class LS
     {
-        
     }
 }
