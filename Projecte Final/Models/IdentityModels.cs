@@ -21,7 +21,7 @@ namespace Projecte_Final.Models
 
 
         //
-        public virtual List<Equipo> EquipsAlsQualsPertanyAquestUsuari { get; set; }
+        public virtual List<Equipo> Equips { get; set; }
 
     }
 
@@ -94,7 +94,7 @@ namespace Projecte_Final.Models
             modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad4).WithMany(x => x.Equipos).HasForeignKey(x => x.Unidad4ID);
             modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad5).WithMany(x => x.Equipos).HasForeignKey(x => x.Unidad5ID);
             modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad6).WithMany(x => x.Equipos).HasForeignKey(x => x.Unidad6ID);
-            modelBuilder.Entity<Equipo>().HasRequired(x => x.Usuario).WithMany(x => x.EquipsAlsQualsPertanyAquestUsuari).HasForeignKey(x => x.UsuarioID);
+            modelBuilder.Entity<Equipo>().HasRequired(x => x.Usuario).WithMany(x => x.Equips).HasForeignKey(x => x.UsuarioID);
 
             //ES
             modelBuilder.Entity<ES>().HasKey(x => x.ID);

@@ -8,7 +8,7 @@ namespace Projecte_Final.Models
     public class Crafteo
     {
         public int ID { get; set; }
-        public List<Objeto> Objetos { get; set; }
+        public ICollection<Objeto> Objetos { get; set; }
         //public int ObjetoID { get; set; }
         public virtual Objeto Objeto { get; set; }
     }

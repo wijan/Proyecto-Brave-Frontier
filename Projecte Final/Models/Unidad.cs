@@ -15,6 +15,6 @@ namespace Projecte_Final.Models
         public int Esfera2ID { get; set; }
         public virtual Esfera Esfera2 { get; set; }
         public int EquipoID { get; set; }
-        public virtual List<Equipo> Equipos { get; set; }
+        public virtual ICollection<Equipo> Equipos { get; set; }
     }
 }

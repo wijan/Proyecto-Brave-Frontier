@@ -56,6 +56,6 @@ namespace Projecte_Final.Models
         public String Angel { get; set; }
         public String ReduccionDaño { get; set; }
 
-        public virtual List<BB> BBEfectos { get; set; }
+        public virtual ICollection<BB> BBEfectos { get; set; }
     }
 }

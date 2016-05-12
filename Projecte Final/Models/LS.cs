@@ -9,6 +9,6 @@ namespace Projecte_Final.Models
     {
         public int ID { get; set; }
         public int Desc { get; set; }
-        public virtual List<Personaje> Personajes { get; set; }
+        public virtual ICollection<Personaje> Personajes { get; set; }
     }
 }

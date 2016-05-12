@@ -17,7 +17,7 @@ namespace Projecte_Final.Models
         public virtual Elemento FuerteVS { get; set; }
         [NotMapped]
         public HttpPostedFileBase Icono { get; set; }
-        public virtual List<Personaje> Personajes { get; set; }
-        public virtual List<Elemento> Elementos { get; set; }
+        public virtual ICollection<Personaje> Personajes { get; set; }
+        public virtual ICollection<Elemento> Elementos { get; set; }
     }
 }
