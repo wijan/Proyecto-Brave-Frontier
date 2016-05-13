@@ -31,6 +31,10 @@ namespace Projecte_Final.Models
 
         public int EfectoBBID { get; set; }
         public virtual Efectos EfectoBB { get; set; }
-        public virtual ICollection<Personaje> Personajes { get; set; }
+
+        public virtual ICollection<Personaje> PersonajesBB { get; set; }
+        public virtual ICollection<Personaje> PersonajesSBB { get; set; }
+        public virtual ICollection<Personaje> PersonajesUBB { get; set; }
+
     }
 }

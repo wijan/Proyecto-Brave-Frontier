@@ -83,17 +83,17 @@ namespace Projecte_Final.Models
 
             //Elemento
             modelBuilder.Entity<Elemento>().HasKey(x => x.ID);
-            modelBuilder.Entity<Elemento>().HasOptional(x => x.DebilVS).WithMany(x => x.Elementos).HasForeignKey(x => x.DebilVSID);
-            modelBuilder.Entity<Elemento>().HasOptional(x => x.FuerteVS).WithMany(x => x.Elementos).HasForeignKey(x => x.FuerteVSID); ;
+            modelBuilder.Entity<Elemento>().HasOptional(x => x.DebilVS).WithMany(x => x.ElementosFuerteContra).HasForeignKey(x => x.DebilVSID);
+            modelBuilder.Entity<Elemento>().HasOptional(x => x.FuerteVS).WithMany(x => x.ElementosDebilContra).HasForeignKey(x => x.FuerteVSID); ;
 
             //Equipo
             modelBuilder.Entity<Equipo>().HasKey(x => x.ID);
-            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad1).WithMany(x => x.Equipos).HasForeignKey(x => x.Unidad1ID);
-            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad2).WithMany(x => x.Equipos).HasForeignKey(x => x.Unidad2ID);
-            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad3).WithMany(x => x.Equipos).HasForeignKey(x => x.Unidad3ID);
-            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad4).WithMany(x => x.Equipos).HasForeignKey(x => x.Unidad4ID);
-            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad5).WithMany(x => x.Equipos).HasForeignKey(x => x.Unidad5ID);
-            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad6).WithMany(x => x.Equipos).HasForeignKey(x => x.Unidad6ID);
+            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad1).WithMany(x => x.EquiposUnidad1).HasForeignKey(x => x.Unidad1ID);
+            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad2).WithMany(x => x.EquiposUnidad2).HasForeignKey(x => x.Unidad2ID);
+            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad3).WithMany(x => x.EquiposUnidad3).HasForeignKey(x => x.Unidad3ID);
+            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad4).WithMany(x => x.EquiposUnidad4).HasForeignKey(x => x.Unidad4ID);
+            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad5).WithMany(x => x.EquiposUnidad5).HasForeignKey(x => x.Unidad5ID);
+            modelBuilder.Entity<Equipo>().HasOptional(x => x.Unidad6).WithMany(x => x.EquiposUnidad6).HasForeignKey(x => x.Unidad6ID);
             modelBuilder.Entity<Equipo>().HasRequired(x => x.Usuario).WithMany(x => x.Equips).HasForeignKey(x => x.UsuarioID);
 
             //ES
@@ -119,13 +119,13 @@ namespace Projecte_Final.Models
             modelBuilder.Entity<Personaje>().HasKey(x => x.Numero);
             modelBuilder.Entity<Personaje>().HasRequired(x => x.Elemento).WithMany(x => x.Personajes).HasForeignKey(x => x.ElementoID);
             modelBuilder.Entity<Personaje>().HasRequired(x => x.Genero).WithMany(x => x.Personajes).HasForeignKey(x => x.GeneroID);
-            modelBuilder.Entity<Personaje>().HasOptional(x => x.BB).WithMany(x => x.Personajes).HasForeignKey(x => x.BBID);
-            modelBuilder.Entity<Personaje>().HasOptional(x => x.SBB).WithMany(x => x.Personajes).HasForeignKey(x => x.SBBID);
-            modelBuilder.Entity<Personaje>().HasOptional(x => x.UBB).WithMany(x => x.Personajes).HasForeignKey(x => x.UBBID);
+            modelBuilder.Entity<Personaje>().HasOptional(x => x.BB).WithMany(x => x.PersonajesBB).HasForeignKey(x => x.BBID);
+            modelBuilder.Entity<Personaje>().HasOptional(x => x.SBB).WithMany(x => x.PersonajesSBB).HasForeignKey(x => x.SBBID);
+            modelBuilder.Entity<Personaje>().HasOptional(x => x.UBB).WithMany(x => x.PersonajesUBB).HasForeignKey(x => x.UBBID);
             modelBuilder.Entity<Personaje>().HasOptional(x => x.ES).WithMany(x => x.Personajes).HasForeignKey(x => x.ESID);
             modelBuilder.Entity<Personaje>().HasOptional(x => x.LS).WithMany(x => x.Personajes).HasForeignKey(x => x.LSID);
-            modelBuilder.Entity<Personaje>().HasOptional(x => x.PreEvo).WithMany(x => x.Personajes).HasForeignKey(x => x.PreEvoNum);
-            modelBuilder.Entity<Personaje>().HasOptional(x => x.PostEvo).WithMany(x => x.Personajes).HasForeignKey(x => x.PostEvoNum);
+            modelBuilder.Entity<Personaje>().HasOptional(x => x.PreEvo).WithMany(x => x.PersonajesPre).HasForeignKey(x => x.PreEvoNum);
+            modelBuilder.Entity<Personaje>().HasOptional(x => x.PostEvo).WithMany(x => x.PersonajesPost).HasForeignKey(x => x.PostEvoNum);
 
             //RamaBB
             modelBuilder.Entity<RamaBB>().HasKey(x => x.ID);

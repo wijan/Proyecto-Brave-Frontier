@@ -18,6 +18,8 @@ namespace Projecte_Final.Models
         [NotMapped]
         public HttpPostedFileBase Icono { get; set; }
         public virtual ICollection<Personaje> Personajes { get; set; }
-        public virtual ICollection<Elemento> Elementos { get; set; }
+        public virtual ICollection<Elemento> ElementosFuerteContra { get; set; }
+        public virtual ICollection<Elemento> ElementosDebilContra { get; set; }
+
     }
 }

@@ -81,7 +81,8 @@ namespace Projecte_Final.Models
 
 
         //Propiedad de navegacion propia
-        public virtual ICollection<Personaje> Personajes { get; set; }
+        public virtual ICollection<Personaje> PersonajesPost { get; set; }
+        public virtual ICollection<Personaje> PersonajesPre { get; set; }
 
         //Propiedad de navegacion a Unidad
         public virtual ICollection<Unidad> Unidades { get; set; }
