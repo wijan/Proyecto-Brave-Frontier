@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,6 +9,7 @@ namespace Projecte_Final.Models
     public class Equipo
     {
         //Equipo compuesto de unidades del juego
+        [Key]
         public int ID { get; set; }
         public int? Unidad1ID { get; set; }
         public virtual Unidad Unidad1 { get; set; }

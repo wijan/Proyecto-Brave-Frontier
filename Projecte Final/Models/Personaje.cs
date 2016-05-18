@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,7 @@ namespace Projecte_Final.Models
         //Personaje del juego.
 
         //Datos generales
+        [Key]
         public int Numero { get; set; }
         public String Nombre { get; set; }
         public int NivelMax { get; set; }
@@ -38,11 +40,11 @@ namespace Projecte_Final.Models
         public int? BBID { get; set; }
         public virtual BB BB { get; set; }
 
-        //SBB
+        ////SBB
         public int? SBBID { get; set; }
         public virtual BB SBB { get; set; }
 
-        //UBB
+        ////UBB
         public int? UBBID { get; set; }
         public virtual BB UBB { get; set; }
 
@@ -81,7 +83,8 @@ namespace Projecte_Final.Models
 
 
         //Propiedad de navegacion propia
-        public virtual ICollection<Personaje> Personajes { get; set; }
+        public virtual ICollection<Personaje> PersonajesPost { get; set; }
+        public virtual ICollection<Personaje> PersonajesPre { get; set; }
 
         //Propiedad de navegacion a Unidad
         public virtual ICollection<Unidad> Unidades { get; set; }

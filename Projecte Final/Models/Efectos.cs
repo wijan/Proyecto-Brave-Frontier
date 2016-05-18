@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,7 @@ namespace Projecte_Final.Models
 {
     public class Efectos
     {
+        [Key]
         public int EfectoBBID { get; set; }
         public int AtkUp { get; set; }
         public int DefUp { get; set; }
