@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Projecte_Final.Models.Esfera>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="hero col-sm-2">
+            <!--nova casella-->
+            <a href="@Url.Action("Details", "Esferas", new { id = item.ID })">
+                <img src="~/File?id=@Html.DisplayFor(modelItem => item.IconaID)" />
+            </a>
+            <p>@item.NomObjeto</p>
+            <!--fi casella-->
+        </div>
+
+
+    }
+</div>

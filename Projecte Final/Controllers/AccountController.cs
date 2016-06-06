@@ -9,9 +9,13 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Projecte_Final.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+
+
 
 namespace Projecte_Final.Controllers
 {
+    
     [Authorize]
     public class AccountController : Controller
     {
@@ -73,9 +77,9 @@ namespace Projecte_Final.Controllers
                 return View(model);
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            // This doesn't count login failures towards account lockout   
+            // To enable password failures to trigger account lockout, change to shouldLockout: true   
+            var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -151,10 +155,12 @@ namespace Projecte_Final.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    // Le asignamos al registrarse el usuario Basic.
+                    UserManager.AddToRole(user.Id, "Basic");
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -171,6 +177,9 @@ namespace Projecte_Final.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+
+        
 
         //
         // GET: /Account/ConfirmEmail
@@ -369,6 +378,8 @@ namespace Projecte_Final.Controllers
                 }
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
+                UserManager.AddToRole(user.Id, "Basic");
+
                 if (result.Succeeded)
                 {
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);

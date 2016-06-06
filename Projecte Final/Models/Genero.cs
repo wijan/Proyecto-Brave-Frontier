@@ -11,7 +11,7 @@ namespace Projecte_Final.Models
         //Género del personaje
         [Key]
         public int ID { get; set; }
-        public String Nombre { get; set; }
+        public String NombreGenero { get; set; }
         public virtual ICollection<Personaje> Personajes { get; set; }
     }
 }

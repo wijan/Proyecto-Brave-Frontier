@@ -1,0 +1,66 @@
+﻿@model Projecte_Final.Models.Stats
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Stats</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Personaje.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personaje.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoPersonaje.Tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoPersonaje.Tipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ataque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ataque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Defensa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Defensa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Recuperacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Recuperacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StatsID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

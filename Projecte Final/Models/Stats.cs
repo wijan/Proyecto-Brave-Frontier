@@ -10,13 +10,17 @@ namespace Projecte_Final.Models
     {
         //Estadísticas de los personajes en función de su tipo.
         [Key]
-        public int ID { get; set; }
+        public int StatsID { get; set; }
         public int PersonajeID { get; set; }
         public virtual Personaje Personaje { get; set; }
-        public String TipoPersonaje { get; set; }
+        //Alma Señor Guardian Rompedor Protector
+        public int TipoPersonajeID { get; set; }
+        public virtual TipoStat TipoPersonaje { get; set; }
         public int Hp { get; set; }
         public int Ataque { get; set; }
         public int Defensa { get; set; }
         public int Recuperacion { get; set; }
+
+        
     }
 }

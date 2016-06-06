@@ -1,0 +1,479 @@
+﻿@model Projecte_Final.Models.Personaje
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="row">
+    <div class="col-md-12 container row">
+
+        <div class="col-xs-4 col-sm-12 col-md-7">
+            <h1> <img src="~/File?id=@ViewBag.icono"/>@Model.Nombre<img src="~/File?id=@Html.DisplayFor(modelItem => Model.Elemento.IconoID)" width="50px" height="auto" /></h1>
+            <table class="table">
+                <tr>
+                    <td><a href="@Url.Action("Index","Personajes")" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span>Lista Personajes</a></td>
+                    <td><a href="@Url.Action("Edit","Personajes", new { id = Model.Numero })" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>Editar Personaje</a></td>
+                    <td><a href="@Url.Action("Create","Stats", new { personajeID = Model.Numero })" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Añadir Stats</a></td>
+
+
+
+                </tr>
+                <tr>
+                    <td><strong>NÚMERO</strong></td>
+                    <td>@Model.Numero</td>
+                </tr>
+                <tr>
+                    <td><strong>LvMAX</strong></td>
+                    <td>@Model.NivelMax</td>
+                </tr>
+                <tr>
+                    <td><strong>HITS</strong></td>
+                    <td>@Model.NHits</td>
+                </tr>
+                <tr>
+                    <td><strong>DC</strong></td>
+                    <td>@Model.DC<img class="cristal" src="~/images/Cristal.png" width="25" height="25" /></td>
+                </tr>
+                <tr>
+                    <td><strong>COSTE</strong></td>
+                    <td>@Model.Coste</td>
+                </tr>
+                <tr>
+                    <td><strong>ESTRELLAS</strong></td>
+                    <td>
+                        @for (var i = 0; i < Model.Estrellas; i++)
+                        {
+                            <img src="~/images/Estrella.png" width="25" height="25" />
+                        }
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-12 col-md-5">
+            <div class="btn-group btn-group-lg">
+                <button data-imagenID="@ViewBag.imagen" class="btn btn-default normal btnImage">Imagen</button>
+                <button data-imagenID="@ViewBag.gif" class="btn btn-default normalGif btnImage">Animación</button>
+                <button data-imagenID="@ViewBag.gifAtaque" class="btn btn-default ataqueGif btnImage">Animación ataque</button>
+            </div>
+
+        </div>
+        <div class="imagenGrande col-sm-12 col-md-7 col-lg-7 container" style="width: 388px; border-radius: 5px;height: 255px;margin: 1em;padding: 3em;">
+            @if (Model.Imagen != null) {
+                <img class="center-block seleccionada" src="~/File?id=@ViewBag.imagen" width="80%" />
+            }
+        </div>
+        <div class="clearfix"></div>
+
+
+        <div class="col-md-12 container">
+            <h2 class="col-md-12">Cadena evolutiva</h2>
+            <table>
+                <tr>
+                    @foreach (var personaje in ViewBag.PersonajesPre)
+                    {
+                        <td>
+                            <a href="@Url.Action("Details", "Personajes", new { id = personaje.Numero })">
+                                <img src="~/File?id=@personaje.IconoID" />
+                            </a>
+                            <img src="~/images/FlechasEvo.gif" />
+                        </td>
+                    }
+                    
+
+                    <td class="actual">
+                        <a href="@Url.Action("Details", "Personajes", new { id = Model.Numero })">
+                            <img src="~/File?id=@Model.IconoID" />
+                        </a>
+                    </td>
+                    @foreach (var personaje in ViewBag.PersonajesPost)
+                    {
+                        <td>
+                            <img src="~/images/FlechasEvo.gif" />
+                            <a href="@Url.Action("Details", "Personajes", new { id = personaje.Numero })">
+                                <img src="~/File?id=@personaje.IconoID" />
+                            </a>
+                        </td>
+                    }
+                    
+                    <td class="col-xs-3 cols-sm-3"></td>
+                    <td>
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-list-alt"></span> Info</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Más información sobre la unidad</h4>
+            </div>
+            <div class="modal-body">
+                <div class=" Estado ">
+                    <div class="col-md-12">
+                        <button class="col-md-2 btn btn-default btnpestana" data-pestana="stats">Stats</button>
+                        <button class="col-md-2 btn btn-default btnpestana" data-pestana="braveburst">Brave Bursts</button>
+                        <button class="col-md-2 btn btn-default btnpestana" data-pestana="rolUnidad">Roles Unidad</button>
+                        <button class="col-md-2 btn btn-default btnpestana" data-pestana="cristales">Cristales</button>
+                        <button class="col-md-2 btn btn-default btnpestana" data-pestana="skills">Skills</button>
+                    </div>
+                    <div class="col-md-12 pestana activa" id="stats">
+                        <h1>Stats</h1>
+                        <table class="table col-md-12">
+                            <tr>
+                                <td><strong>Tipo</strong></td>
+                                <td><strong>HP</strong></td>
+                                <td><strong>ATK</strong></td>
+                                <td><strong>DEF</strong></td>
+                                <td><strong>REC</strong></td>
+                            </tr>
+                            @foreach (var stat in ViewBag.stats)
+                            {
+                            <tr>
+                                <td>@stat.TipoPersonaje.Tipo</td>
+                                <td>@stat.Hp</td>
+                                <td>@stat.Ataque</td>
+                                <td>@stat.Defensa</td>
+                                <td>@stat.Recuperacion</td>
+                            </tr>
+                            }
+                        </table>
+                    </div>
+                    <div class="col-md-12 pestana" id="braveburst">
+                        <h1>Brave Bursts</h1>
+                        <table class=" table col-md-12">
+
+                            <tr>
+                                <td class="col-md-2"><strong>Tipo</strong></td>
+                                <td class="col-md-2"><strong>RamaBB</strong></td>
+                                <td class="col-md-2"><strong>Multiplicador</strong></td>
+                                <td class="col-md-2"><strong>Descripción</strong></td>
+                            </tr>
+                            <tr>
+                                @if (@ViewBag.BB != null)
+                                {
+                                <td>@ViewBag.BB.TipoBB.NombreTipoBB</td>
+                                <td>@ViewBag.BB.RamaBB.NombreRamaBB</td>
+                                <td>@(ViewBag.BB.MultiplicadorBB)%</td>
+                                <td>@ViewBag.BB.BBDesc</td>
+                                }
+                                else
+                                {
+                                    <td>
+                                    @Html.ActionLink("Añadir BB", "Create", "BBs", new { PersonajeID = Model.Numero, TipoBBID = 1 }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @if (@ViewBag.SBB != null)
+                                {
+                                    <td>@ViewBag.SBB.TipoBB.NombreTipoBB</td>
+                                    <td>@ViewBag.SBB.RamaBB.NombreRamaBB</td>
+                                    <td>@(ViewBag.SBB.MultiplicadorBB)%</td>
+                                    <td>@ViewBag.SBB.BBDesc</td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        @Html.ActionLink("Añadir SBB", "Create", "BBs", new { PersonajeID = Model.Numero, TipoBBID = 2 }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @if (@ViewBag.UBB != null)
+                                {
+                                    <td>@ViewBag.UBB.TipoBB.NombreTipoBB</td>
+                                    <td>@ViewBag.UBB.RamaBB.NombreRamaBB</td>
+                                    <td>@(ViewBag.UBB.MultiplicadorBB)%</td>
+                                    <td>@ViewBag.UBB.BBDesc</td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        @Html.ActionLink("Añadir UBB", "Create", "BBs", new { PersonajeID = Model.Numero, TipoBBID = 3 }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+                                    </td>
+                                }
+                            </tr>
+                        </table>
+
+                    </div>
+                    <div class="col-md-12 pestana" id="rolUnidad">
+                        <h1>Roles Unidad</h1>
+                        <p>Roles que ocupa la unidad</p>
+                        <table class="col-xs-12 table">
+                            <tr>
+                                <td>Roles</td>
+                            </tr>
+                            <tr>
+                                <td>Mitigador</td>
+                                <td>
+                                    @if (Model.Mitigador==true)
+                                    {
+                                        <span class="btn btn-success">
+                                            <span class="glyphicon glyphicon-thumbs-up"></span>
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-thumbs-down"></span>
+                                        </span>
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Healer</td>
+                                <td>
+                                    @if (Model.Healer==true)
+                                    {
+                                        <span class="btn btn-success">
+                                            <span class="glyphicon glyphicon-thumbs-up"></span>
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-thumbs-down"></span>
+                                        </span>
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Antiestados</td>
+                                <td>
+                                    @if (Model.Antiestados==true)
+                                    {
+                                        <span class="btn btn-success">
+                                            <span class="glyphicon glyphicon-thumbs-up"></span>
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-thumbs-down"></span>
+                                        </span>
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>BB Fill</td>
+                                <td>
+                                    @if (Model.BBFill==true)
+                                    {
+                                        <span class="btn btn-success">
+                                            <span class="glyphicon glyphicon-thumbs-up"></span>
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-thumbs-down"></span>
+                                        </span>
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Aumento Drop</td>
+                                <td>
+                                    @if (Model.AumentoDrop==true)
+                                    {
+                                        <span class="btn btn-success">
+                                            <span class="glyphicon glyphicon-thumbs-up"></span>
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-thumbs-down"></span>
+                                        </span>
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sparker</td>
+                                <td>
+                                    @if (Model.Sparker==true)
+                                    {
+                                        <span class="btn btn-success">
+                                            <span class="glyphicon glyphicon-thumbs-up"></span>
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-thumbs-down"></span>
+                                        </span>
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Critics</td>
+                                <td>
+                                    @if (Model.Criticos==true)
+                                    {
+                                        <span class="btn btn-success">
+                                            <span class="glyphicon glyphicon-thumbs-up"></span>
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-thumbs-down"></span>
+                                        </span>
+                                    }
+                                </td>
+                            </tr>
+                            Mitigador, Healer, antiestados, BB fill, Aumento drop, Sparker, Critics
+                        </table>
+
+                    </div>
+                    <div class="col-md-12 pestana" id="cristales">
+                        <h1>Cristales</h1>
+                        <table class="table col-md-12">
+                            <tr>
+                                <td class="col-md-3"><strong>Tipo</strong></td>
+                                <td class="col-md-3"><strong>Targets</strong></td>
+                                <td class="col-md-3"><strong>Mínimo drop</strong></td>
+                                <td class="col-md-3"><strong>Máximo drop</strong></td>
+
+                            </tr>
+                            <tr>
+                                <td>Normal</td>
+                                <td></td>
+                                <td>@(Model.DC)<img class="cristal" src="~/images/Cristal.png" width="25" height="25" /></td>
+                                <td>@(Model.DC * Model.NHits)<img class="cristal" src="~/images/Cristal.png" width="25" height="25" /></td>
+                            </tr>
+                            <tr>
+                                <td>BB (/unidad atacada)</td>
+                                <td>
+                                    {%if personaje.bb%}
+                                    {%ifequal personaje.grupalBB "Grupal"%}<span class="fa fa-users"></span>
+                                    {%endifequal%}
+                                    {%ifequal personaje.grupallBB "Un enemigo"%}<span class="fa fa-users"></span>
+                                    {%endifequal%}
+                                    {%ifequal personaje.grupallBB "No ataca"%}<span>No ataca</span>
+                                    {%endifequal%}
+                                    {%else%}
+                                    N/D
+                                    {%endif%}
+                                </td>
+                                <td>
+                                    {%if personaje.nhitsBB%}{{personaje.nhitsBB}}<img class="cristal" src="~/images/Cristal.png" width="25" height="25" />
+                                    {%else%}N/D{%endif%}
+                                </td>
+                                <td>
+                                    {%if cristales.2%}{{cristales.3}}<img class="cristal" src="~/images/Cristal.png" width="25" height="25" />
+                                    {%else%}{{cristales.3}}{%endif%}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SBB (/unidad atacada)</td>
+                                <td>
+                                    {%if personaje.sbb%}
+                                    {%ifequal personaje.grupalSBB "Grupal"%}<span class="fa fa-users"></span>
+                                    {%endifequal%}
+                                    {%ifequal personaje.grupallSBB "Un enemigo"%}<span class="fa fa-users"></span>
+                                    {%endifequal%}
+                                    {%ifequal personaje.grupallSBB "No ataca"%}<span>No ataca</span>
+                                    {%endifequal%}
+                                    {%else%}
+                                    N/D
+                                    {%endif%}
+                                </td>
+                                <td>
+                                    {%if personaje.nhitsSBB%}{{personaje.nhitsSBB}}<img class="cristal" src="~/images/Cristal.png" width="25" height="25" />
+                                    {%else%}N/D{%endif%}
+                                </td>
+                                </td>
+                                <td>
+                                    {%if cristales.4%}{{cristales.5}}<img class="cristal" src="~/images/Cristal.png" width="25" height="25" />
+                                    {%else%}{{cristales.5}}{%endif%}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>UBB (/unidad atacada)</td>
+                                <td>
+                                    {%if personaje.ubb%}
+                                    {%ifequal personaje.grupalUBB "Grupal"%}<span class="fa fa-users"></span>
+                                    {%endifequal%}
+                                    {%ifequal personaje.grupallUBB "Un enemigo"%}<span class="fa fa-users"></span>
+                                    {%endifequal%}
+                                    {%ifequal personaje.grupallUBB "No ataca"%}<span>No ataca</span>
+                                    {%endifequal%}
+                                    {%else%}
+                                    N/D
+                                    {%endif%}
+                                </td>
+                                <td>
+                                    {%if personaje.nhitsUBB%}{{personaje.nhitsUBB}}<img class="cristal" src="~/images/Cristal.png" width="25" height="25" />
+                                    {%else%}N/D{%endif%}
+                                </td>
+                                </td>
+                                <td>
+                                    {%if cristales.6%}{{cristales.7}}<img class="cristal" src="~/images/Cristal.png" width="25" height="25" />
+                                    {%else%}{{cristales.7}}{%endif%}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-12 pestana" id="skills">
+                        <h1>Skills</h1>
+                        <table class="table">
+                            <tr>
+                                <td></td>
+                                <td>Leader Skill</td>
+                                <td>Extra Skill</td>
+                                <td>Brave Burst</td>
+                                <td>Super Brave Burst</td>
+                                <td>Ultra Brave Burst</td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-2">Descripción</td>
+                                <td class="col-md-2">
+                                    <p> {{personaje.ls}}</p>
+                                </td>
+                                <td class="col-md-2">
+                                    <p>{{personaje.es}}</p>
+                                </td>
+                                <td class="col-md-2">
+                                    <p>{{personaje.bb}}</p>
+                                </td>
+                                <td class="col-md-2">
+                                    <p>{{personaje.sbb}}</p>
+                                </td>
+                                <td class="col-md-2">
+                                    <p>{{personaje.ubb}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Daño (Con ATK neutral)</td>
+                                <td>Multiplicador BB: {{personaje.multiplicadorBB}}</td>
+                                <td></td>
+                                <td>{{danoBB}}</td>
+                                <td>{{danoSBB}}</td>
+                                <td>{{danoUBB}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Numero }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+@section scripts{
+    <script src="~/Scripts/modal.js"></script>
+    }

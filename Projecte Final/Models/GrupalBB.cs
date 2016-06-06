@@ -11,7 +11,7 @@ namespace Projecte_Final.Models
         //Si la habilidad es grupal o individual.
         [Key]
         public int ID { get; set; }
-        public String Nombre { get; set; }
+        public String NombreGrupal { get; set; }
         public virtual ICollection<BB> BBGrupal { get; set; }
     }
 }

@@ -1,0 +1,134 @@
+﻿@model IEnumerable<Projecte_Final.Models.Personaje>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div id="index" ng-app="Personajes">
+    <div id="PersonajesController" ng-controller="PersonajesController">
+        <div class="col-xs-12" id="busqueda">
+            <form role="form">
+                <div class="form-group col-sm-3">
+                    <div class="input-group">
+                        <input type="text" ng-model="cerca.Cerca" class="form-control" placeholder="Buscar...">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                    </div>
+                </div>
+            </form>
+            <button class="pull-right btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-filter"></span> Filtros</button>
+        </div>
+        <div class="row" ng-app="Personajes">
+            <div ng-controller="PersonajesController">
+                <div class="hero col-sm-2" ng-repeat="personaje in personajes| filter:cerca | menorQueCoste:filtroCoste | menorQueEstrellas:filtroEstrellas">
+                    <!--nova casella-->
+                    <a ng-href="@Url.Action("Details", "Personajes")/{{personaje.Numero}}">
+                        <img ng-src="~/File?id={{personaje.IconoID}}">
+                    </a>
+                    <p>No.{{personaje.Numero}}</p>
+                    <!--fi casella-->
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Filtros de búsqueda y métodos de ordenación</h4>
+                    </div>
+                    <div class="modal-body">
+                        Filtros
+                        <form role="form">
+                            <div class="form-group col-xs-12">
+                                <div class="input-group">
+                                    <label for="select">Filtrar por elemento</label>
+                                    <select class="form-control" id="select" ng-model="cerca.Elemento">
+                                        <option value="Fuego">Fuego</option>
+                                        <option value="Agua">Agua</option>
+                                        <option value="Trueno">Trueno</option>
+                                        <option value="Tierra">Tierra</option>
+                                        <option value="Luz">Luz</option>
+                                        <option value="Oscuridad">Oscuridad</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <div class="input-group">
+                                    <label for="coste">Coste maximo</label>
+                                    <input type="number" min="1" id="coste" ng-init="filtroCoste=100" ng-model="filtroCoste" />
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <div class="input-group">
+                                    <label for="estrellas">Estrellas</label>
+                                    <input type="number" min="1" max="7" id="estrellas" ng-init="filtroEstrellas=7" ng-model="filtroEstrellas" />
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <div class="input-group">
+                                    <input type="checkbox" id="Mitigador" class="rol" name="rol" value="Mitigador" ng-model="cerca.Mitigador" ng-change="cerca.Mitigador = cerca.Mitigador ? true : undefined"/>
+                                    <label for="Mitigador">Mitigador</label>
+                                    
+                                </div>
+                                <div class="input-group">
+                                    <input type="checkbox" id="Healer" class="rol" name="rol" value="Healer" ng-model="cerca.Healer" ng-change="cerca.Healer = cerca.Healer ? true : undefined"/>
+                                    <label for="Healer">Healer</label>
+                                    
+                                </div>
+                                <div class="input-group">
+                                    <input type="checkbox" id="Antiestados" class="rol" name="rol" value="Antiestados" ng-model="cerca.Antiestados" ng-change="cerca.Antiestados = cerca.Antiestados ? true : undefined"/>
+                                    <label for="Antiestados">Antiestados</label>
+                                    
+                                </div>
+                                <div class="input-group">
+                                    <input type="checkbox" id="BBFill" class="rol" name="rol" value="BBFill" ng-model="cerca.BBFill" ng-change="cerca.BBFill = cerca.BBFill ? true : undefined"/>
+                                    <label for="BBFill">BBFill</label>
+                                    
+                                </div>
+                                <div class="input-group">
+                                    <input type="checkbox" id="AumentoDrop" class="rol" name="rol" value="AumentoDrop" ng-model="cerca.AumentoDrop" ng-change="cerca.AumentoDrop = cerca.AumentoDrop ? true : undefined"/>
+                                    <label for="AumentoDrop">Aumento de Drop</label>
+                                    
+                                </div>
+                                <div class="input-group">
+                                    <input type="checkbox" id="Sparker" class="rol" name="rol" value="Sparker" ng-model="cerca.Sparker" ng-change="cerca.Sparker = cerca.Sparker ? true : undefined"/>
+                                    <label for="Sparker">Sparker</label>
+                                    
+                                </div>
+                                <div class="input-group">
+                                    <input type="checkbox" id="Criticos" class="rol" name="rol" value="Criticos" ng-model="cerca.Criticos" ng-change="cerca.Criticos = cerca.Criticos ? true : undefined"/>
+                                    <label for="Criticos">Criticos</label>
+                                    
+                                </div>
+                                <div class="input-group">
+                                    <input type="checkbox" id="AumentoStats" class="rol" name="rol" value="AumentoStats" ng-model="cerca.AumentoStats" ng-change="cerca.AumentoStats = cerca.AumentoStats ? true : undefined"/>
+                                    <label for="AumentoStats">Aumento de Stats</label>
+
+                                </div>
+                                <div class="input-group">
+                                    <input type="checkbox" id="Nuker" class="rol" name="rol" value="Nuker" ng-model="cerca.Nuker" ng-change="cerca.Nuker = cerca.Nuker ? true : undefined"/>
+                                    <label for="Nuker">Nuker</label>
+
+                                </div>
+                            </div>
+                        </form>
+                        <button ng-click="BorrarFiltros()" class="btn btn-info">Borrar Filtros</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/modal.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/AngularPersonajesIndex.js"></script>
+}

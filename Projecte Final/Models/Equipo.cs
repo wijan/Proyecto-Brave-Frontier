@@ -10,7 +10,7 @@ namespace Projecte_Final.Models
     {
         //Equipo compuesto de unidades del juego
         [Key]
-        public int ID { get; set; }
+        public int EquipoID { get; set; }
         public int? Unidad1ID { get; set; }
         public virtual Unidad Unidad1 { get; set; }
         public int? Unidad2ID { get; set; }

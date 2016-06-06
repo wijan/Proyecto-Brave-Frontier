@@ -1,0 +1,184 @@
+﻿@model Projecte_Final.Models.Personaje
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Personaje</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Elemento.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Elemento.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ES.ESID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ES.ESID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genero.NombreGenero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genero.NombreGenero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gif.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gif.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GifAtaque.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GifAtaque.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Icono.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Icono.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imagen.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imagen.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LS.Desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LS.Desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostEvo.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostEvo.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreEvo.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreEvo.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NivelMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NivelMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estrellas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estrellas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Coste)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coste)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHits)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImpHP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImpHP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImpAtk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImpAtk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImpDef)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImpDef)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImpRec)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImpRec)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

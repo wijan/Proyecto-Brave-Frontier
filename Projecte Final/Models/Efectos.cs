@@ -9,7 +9,7 @@ namespace Projecte_Final.Models
     public class Efectos
     {
         [Key]
-        public int EfectoBBID { get; set; }
+        public int EfectoID { get; set; }
         public int AtkUp { get; set; }
         public int DefUp { get; set; }
         public int RecUp { get; set; }
@@ -58,6 +58,7 @@ namespace Projecte_Final.Models
         public String Angel { get; set; }
         public String ReduccionDaño { get; set; }
 
-        public virtual ICollection<BB> BBEfectos { get; set; }
+        public int BBID { get; set; }
+        public virtual BB BB { get; set; }
     }
 }

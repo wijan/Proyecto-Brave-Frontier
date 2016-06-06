@@ -1,0 +1,26 @@
+﻿@model Projecte_Final.Models.GrupalBB
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GrupalBB</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreGrupal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreGrupal)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

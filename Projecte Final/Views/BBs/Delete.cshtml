@@ -1,0 +1,104 @@
+﻿@model Projecte_Final.Models.BB
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BB</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GrupalBB.NombreGrupal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GrupalBB.NombreGrupal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personaje.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personaje.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RamaBB.NombreRamaBB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RamaBB.NombreRamaBB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoBB.NombreTipoBB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoBB.NombreTipoBB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreBB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreBB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BBDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BBDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhitsBB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhitsBB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DCBB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DCBB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CosteBB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CosteBB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MultiplicadorBB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MultiplicadorBB)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

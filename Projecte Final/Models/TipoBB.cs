@@ -10,7 +10,7 @@ namespace Projecte_Final.Models
     {
         [Key]
         public int TipoID { get; set; }
-        public String Tipo { get; set; }
+        public String NombreTipoBB { get; set; }
         public virtual ICollection<BB> BBTipo { get; set; }
     }
 }

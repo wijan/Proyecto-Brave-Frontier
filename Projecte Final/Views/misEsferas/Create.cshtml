@@ -1,0 +1,33 @@
+﻿@model Projecte_Final.Models.misEsferas
+
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Selecciona una de las esferas del juego para guardarla en tu inventario de esferas</h2>
+
+
+<div class="row">
+    @foreach (var item in ViewBag.esferas)
+    {
+        <div class="hero col-sm-2">
+            <!--nova casella-->
+            <a href="@Url.Action("CrearEsfera", "misEsferas", new { id = item.ID })">
+                <img src="~/File?id=@item.IconaID" />
+            </a>
+            <p>@item.NomObjeto</p>
+            <!--fi casella-->
+        </div>
+
+
+    }
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

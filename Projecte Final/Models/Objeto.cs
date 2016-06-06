@@ -11,9 +11,9 @@ namespace Projecte_Final.Models
     {
         [Key]
         public int ID { get; set; }
-        public String Nombre { get; set; }
-        [NotMapped]
-        public HttpPostedFileBase Imagen { get; set; }
+        public String NomObjeto { get; set; }
+        public int? IconaID { get; set; }
+        public virtual File Icona { get; set; }
         //public int CrafteoID { get; set; }
         public virtual Crafteo Crafteo { get; set; }
         public String Descripcion { get; set; }

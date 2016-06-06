@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44329</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <IncludeIisSettings>true</IncludeIisSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -77,6 +78,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -140,9 +145,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -196,15 +198,51 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BBsController.cs" />
+    <Compile Include="Controllers\EfectoEsferasController.cs" />
+    <Compile Include="Controllers\EfectosController.cs" />
+    <Compile Include="Controllers\ElementoesController.cs" />
+    <Compile Include="Controllers\EquipoesController.cs" />
+    <Compile Include="Controllers\ESController.cs" />
+    <Compile Include="Controllers\EsferasController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\FilesController.cs" />
+    <Compile Include="Controllers\GeneroesController.cs" />
+    <Compile Include="Controllers\GrupalBBsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LSController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\misEsferasController.cs" />
+    <Compile Include="Controllers\ObjetoesController.cs" />
+    <Compile Include="Controllers\PersonajesController.cs" />
+    <Compile Include="Controllers\RamaBBsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\StatsController.cs" />
+    <Compile Include="Controllers\TipoBBsController.cs" />
+    <Compile Include="Controllers\TipoEsferasController.cs" />
+    <Compile Include="Controllers\TipoStatsController.cs" />
+    <Compile Include="Controllers\UnidadsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605310133345_BF1.cs" />
+    <Compile Include="Migrations\201605310133345_BF1.Designer.cs">
+      <DependentUpon>201605310133345_BF1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605310154300_BF2.cs" />
+    <Compile Include="Migrations\201605310154300_BF2.Designer.cs">
+      <DependentUpon>201605310154300_BF2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606031637541_BF3.cs" />
+    <Compile Include="Migrations\201606031637541_BF3.Designer.cs">
+      <DependentUpon>201606031637541_BF3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Crafteo.cs" />
+    <Compile Include="Models\File.cs" />
     <Compile Include="Models\LS.cs" />
+    <Compile Include="Models\misEsferas.cs" />
     <Compile Include="Models\Objeto.cs" />
     <Compile Include="Models\BB.cs" />
     <Compile Include="Models\Efectos.cs" />
@@ -218,25 +256,33 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Personaje.cs" />
+    <Compile Include="Models\PersonajeAngular.cs" />
     <Compile Include="Models\Stats.cs" />
     <Compile Include="Models\RamaBB.cs" />
     <Compile Include="Models\TipoBB.cs" />
     <Compile Include="Models\TipoEsfera.cs" />
+    <Compile Include="Models\TipoStat.cs" />
     <Compile Include="Models\Unidad.cs" />
+    <Compile Include="Models\UnidadAngular.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\BraveFrontier.css" />
+    <Content Include="Content\select2.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\AngularPersonajesIndex.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\WdWilson.pubxml" />
+    <None Include="Properties\PublishProfiles\Wijan.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -245,9 +291,11 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modal.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\select2Fields.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -283,9 +331,114 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Generoes\Create.cshtml" />
+    <Content Include="Views\Generoes\Delete.cshtml" />
+    <Content Include="Views\Generoes\Details.cshtml" />
+    <Content Include="Views\Generoes\Edit.cshtml" />
+    <Content Include="Views\Generoes\Index.cshtml" />
+    <Content Include="Views\TipoBBs\Create.cshtml" />
+    <Content Include="Views\TipoBBs\Delete.cshtml" />
+    <Content Include="Views\TipoBBs\Details.cshtml" />
+    <Content Include="Views\TipoBBs\Edit.cshtml" />
+    <Content Include="Views\TipoBBs\Index.cshtml" />
+    <Content Include="Views\RamaBBs\Create.cshtml" />
+    <Content Include="Views\RamaBBs\Delete.cshtml" />
+    <Content Include="Views\RamaBBs\Details.cshtml" />
+    <Content Include="Views\RamaBBs\Edit.cshtml" />
+    <Content Include="Views\RamaBBs\Index.cshtml" />
+    <Content Include="Views\Efectos\Create.cshtml" />
+    <Content Include="Views\Efectos\Delete.cshtml" />
+    <Content Include="Views\Efectos\Details.cshtml" />
+    <Content Include="Views\Efectos\Edit.cshtml" />
+    <Content Include="Views\Efectos\Index.cshtml" />
+    <Content Include="Views\TipoStats\Create.cshtml" />
+    <Content Include="Views\TipoStats\Delete.cshtml" />
+    <Content Include="Views\TipoStats\Details.cshtml" />
+    <Content Include="Views\TipoStats\Edit.cshtml" />
+    <Content Include="Views\TipoStats\Index.cshtml" />
+    <Content Include="Views\Stats\Create.cshtml" />
+    <Content Include="Views\Stats\Delete.cshtml" />
+    <Content Include="Views\Stats\Details.cshtml" />
+    <Content Include="Views\Stats\Edit.cshtml" />
+    <Content Include="Views\Stats\Index.cshtml" />
+    <Content Include="Views\Unidads\Create.cshtml" />
+    <Content Include="Views\Unidads\Delete.cshtml" />
+    <Content Include="Views\Unidads\Details.cshtml" />
+    <Content Include="Views\Unidads\Edit.cshtml" />
+    <Content Include="Views\Unidads\Index.cshtml" />
+    <Content Include="Views\Equipoes\Create.cshtml" />
+    <Content Include="Views\Equipoes\Delete.cshtml" />
+    <Content Include="Views\Equipoes\Details.cshtml" />
+    <Content Include="Views\Equipoes\Edit.cshtml" />
+    <Content Include="Views\Equipoes\Index.cshtml" />
+    <Content Include="Views\ES\Create.cshtml" />
+    <Content Include="Views\ES\Delete.cshtml" />
+    <Content Include="Views\ES\Details.cshtml" />
+    <Content Include="Views\ES\Edit.cshtml" />
+    <Content Include="Views\ES\Index.cshtml" />
+    <Content Include="Views\Elementoes\Create.cshtml" />
+    <Content Include="Views\Elementoes\Delete.cshtml" />
+    <Content Include="Views\Elementoes\Details.cshtml" />
+    <Content Include="Views\Elementoes\Edit.cshtml" />
+    <Content Include="Views\Elementoes\Index.cshtml" />
+    <Content Include="Views\Files\Create.cshtml" />
+    <Content Include="Views\Files\Delete.cshtml" />
+    <Content Include="Views\Files\Details.cshtml" />
+    <Content Include="Views\Files\Edit.cshtml" />
+    <Content Include="Views\Files\Index.cshtml" />
+    <Content Include="Views\EfectoEsferas\Create.cshtml" />
+    <Content Include="Views\EfectoEsferas\Delete.cshtml" />
+    <Content Include="Views\EfectoEsferas\Details.cshtml" />
+    <Content Include="Views\EfectoEsferas\Edit.cshtml" />
+    <Content Include="Views\EfectoEsferas\Index.cshtml" />
+    <Content Include="Views\TipoEsferas\Create.cshtml" />
+    <Content Include="Views\TipoEsferas\Delete.cshtml" />
+    <Content Include="Views\TipoEsferas\Details.cshtml" />
+    <Content Include="Views\TipoEsferas\Edit.cshtml" />
+    <Content Include="Views\TipoEsferas\Index.cshtml" />
+    <Content Include="Views\Objetoes\Create.cshtml" />
+    <Content Include="Views\Objetoes\Delete.cshtml" />
+    <Content Include="Views\Objetoes\Details.cshtml" />
+    <Content Include="Views\Objetoes\Edit.cshtml" />
+    <Content Include="Views\Objetoes\Index.cshtml" />
+    <Content Include="Views\BBs\Create.cshtml" />
+    <Content Include="Views\BBs\Delete.cshtml" />
+    <Content Include="Views\BBs\Details.cshtml" />
+    <Content Include="Views\BBs\Edit.cshtml" />
+    <Content Include="Views\BBs\Index.cshtml" />
+    <Content Include="Views\GrupalBBs\Create.cshtml" />
+    <Content Include="Views\GrupalBBs\Delete.cshtml" />
+    <Content Include="Views\GrupalBBs\Details.cshtml" />
+    <Content Include="Views\GrupalBBs\Edit.cshtml" />
+    <Content Include="Views\GrupalBBs\Index.cshtml" />
+    <Content Include="Views\Unidads\AsignarEsfera.cshtml" />
+    <Content Include="Views\Esferas\Create.cshtml" />
+    <Content Include="Views\Esferas\Delete.cshtml" />
+    <Content Include="Views\Esferas\Details.cshtml" />
+    <Content Include="Views\Esferas\Edit.cshtml" />
+    <Content Include="Views\Esferas\Index.cshtml" />
+    <Content Include="Views\misEsferas\Create.cshtml" />
+    <Content Include="Views\misEsferas\Delete.cshtml" />
+    <Content Include="Views\misEsferas\Details.cshtml" />
+    <Content Include="Views\misEsferas\Edit.cshtml" />
+    <Content Include="Views\misEsferas\Index.cshtml" />
+    <Content Include="Views\Stats\CreateStatsUnidad.cshtml" />
+    <Content Include="Views\Personajes\Create.cshtml" />
+    <Content Include="Views\Personajes\Delete.cshtml" />
+    <Content Include="Views\Personajes\Details.cshtml" />
+    <Content Include="Views\Personajes\Edit.cshtml" />
+    <Content Include="Views\Personajes\Index.cshtml" />
+    <Content Include="Views\LS\Create.cshtml" />
+    <Content Include="Views\LS\Delete.cshtml" />
+    <Content Include="Views\LS\Details.cshtml" />
+    <Content Include="Views\LS\Edit.cshtml" />
+    <Content Include="Views\LS\Index.cshtml" />
+    <Content Include="Views\Roles\ManageUserRoles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="images\" />
+    <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -294,6 +447,17 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201605310133345_BF1.resx">
+      <DependentUpon>201605310133345_BF1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605310154300_BF2.resx">
+      <DependentUpon>201605310154300_BF2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606031637541_BF3.resx">
+      <DependentUpon>201606031637541_BF3.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -313,7 +477,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53953</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53953/</IISUrl>
+          <IISUrl>https://localhost:44329/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

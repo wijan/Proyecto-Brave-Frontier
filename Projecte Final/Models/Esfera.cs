@@ -12,7 +12,7 @@ namespace Projecte_Final.Models
         [Key]
         public int TipoID { get; set; }
         public virtual TipoEsfera TipoEsfera { get; set; }
-        public int EfectoID { get; set; }
-        public virtual EfectoEsfera Efecto { get; set; }
+        public ICollection<EfectoEsfera> EfectosEsfera { get; set; }
+        public ICollection<misEsferas> misEsferas { get; set; }
     }
 }

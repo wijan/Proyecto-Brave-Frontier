@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Projecte_Final.Models.Elemento>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            Icono
+        </th>
+        <th>
+            Fuerte contra
+        </th>
+        <th>
+            Débil contra
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            <div class="col-xs-4">
+                <img class="elemento img-responsive" src="~/File?id=@Html.DisplayFor(modelItem => item.IconoID)" />
+            </div>
+        </td>
+        <td>
+            <div class="col-xs-4">
+                <img class="elemento img-responsive" src="~/File?id=@Html.DisplayFor(modelItem => item.FuerteVS.IconoID)" />
+            </div>
+        </td>
+        <td>
+            <div class="col-xs-4">
+                <img class="elemento img-responsive" src="~/File?id=@Html.DisplayFor(modelItem => item.DebilVS.IconoID)" />
+            </div>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ElementoID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ElementoID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ElementoID })
+        </td>
+    </tr>
+}
+
+</table>

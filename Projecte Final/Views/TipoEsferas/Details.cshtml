@@ -1,0 +1,26 @@
+﻿@model Projecte_Final.Models.TipoEsfera
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TipoEsfera</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreTipoEsfera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreTipoEsfera)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

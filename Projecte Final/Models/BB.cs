@@ -11,7 +11,7 @@ namespace Projecte_Final.Models
         [Key]
         public int ID { get; set; }
         //Habilidades de los personajes
-        public String Nombre { get; set; }
+        public String NombreBB { get; set; }
         public String BBDesc { get; set; }
 
         //Rama del BB (Heal, Support o Atk)
@@ -31,12 +31,9 @@ namespace Projecte_Final.Models
         public int CosteBB { get; set; }
         public int MultiplicadorBB { get; set; }
 
-        public int EfectoBBID { get; set; }
-        public virtual Efectos EfectoBB { get; set; }
-
-
-        public virtual ICollection<Personaje> PersonajesBB { get; set; }
-        public virtual ICollection<Personaje> PersonajesSBB { get; set; }
-        public virtual ICollection<Personaje> PersonajesUBB { get; set; }
+        public ICollection<Efectos> Efectos { get; set; }
+        
+        public int PersonajeID { get; set;}
+        public virtual Personaje Personaje { get; set; }
     }
 }

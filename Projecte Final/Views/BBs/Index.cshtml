@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Projecte_Final.Models.BB>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GrupalBB.NombreGrupal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personaje.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RamaBB.NombreRamaBB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoBB.NombreTipoBB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreBB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BBDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NhitsBB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DCBB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CosteBB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MultiplicadorBB)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GrupalBB.NombreGrupal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Personaje.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RamaBB.NombreRamaBB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoBB.NombreTipoBB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreBB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BBDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhitsBB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DCBB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CosteBB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MultiplicadorBB)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

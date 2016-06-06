@@ -1,0 +1,392 @@
+﻿@model Projecte_Final.Models.Efectos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Efectos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BB.NombreBB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BB.NombreBB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AtkUp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AtkUp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DefUp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DefUp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecUp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecUp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HpUp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HpUp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CritRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CritRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CritDmg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CritDmg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BBDmg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BBDmg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SparkDmg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SparkDmg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CargaBB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CargaBB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CargaBBTurno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CargaBBTurno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CargaBBRecibir)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CargaBBRecibir)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VelocidadBB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VelocidadBB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CargaBBSpark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CargaBBSpark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CargaOD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CargaOD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mitigacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mitigacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Barrera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Barrera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Heal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Heal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HealTurno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HealTurno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DropCB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DropCB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DropCC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DropCC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DropItems)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DropItems)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DañoAlAfligir)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DañoAlAfligir)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IgnDef)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IgnDef)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AumentoHits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AumentoHits)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Revivir)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Revivir)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BBAtacar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BBAtacar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BBCritico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BBCritico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReduccionCosteBB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReduccionCosteBB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReduccionUsoBB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReduccionUsoBB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecargaGuard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecargaGuard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DropZel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DropZel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DropKarma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DropKarma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EfectividadCC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EfectividadCC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReduccionDmgGuard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReduccionDmgGuard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MitigacionElemental)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MitigacionElemental)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadosAlterados)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadosAlterados)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Antiestados)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Antiestados)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AtkDown)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AtkDown)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DefDown2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DefDown2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VulnerabilidadSpark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VulnerabilidadSpark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AñadirElementos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AñadirElementos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DebilidadElemental)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DebilidadElemental)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Angel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Angel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReduccionDaño)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReduccionDaño)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

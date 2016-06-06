@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Projecte_Final.Models.Equipo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Equipo
+        </th>
+        <th>
+            Unidad 1
+        </th>
+        <th>
+            Unidad 2
+        </th>
+        <th>
+            Unidad 3
+        </th>
+        <th>
+            Unidad 4
+        </th>
+        <th>
+            Unidad 5
+        </th>
+        <th>
+            Unidad 6
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.EquipoID
+            </td>
+            <td>
+                <a href="@Url.Action("Details", "Unidads", new { id = item.Unidad1.ID })">
+                    <img src="~/File?id=@Html.DisplayFor(modelItem => item.Unidad1.Personaje.IconoID)" />
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("Details", "Unidads", new { id = item.Unidad2.ID })">
+                    <img src="~/File?id=@Html.DisplayFor(modelItem => item.Unidad2.Personaje.IconoID)" />
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("Details", "Unidads", new { id = item.Unidad3.ID })">
+                    <img src="~/File?id=@Html.DisplayFor(modelItem => item.Unidad3.Personaje.IconoID)" />
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("Details", "Unidads", new { id = item.Unidad4.ID })">
+                    <img src="~/File?id=@Html.DisplayFor(modelItem => item.Unidad4.Personaje.IconoID)" />
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("Details", "Unidads", new { id = item.Unidad5.ID })">
+                    <img src="~/File?id=@Html.DisplayFor(modelItem => item.Unidad5.Personaje.IconoID)" />
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("Details", "Unidads", new { id = item.Unidad6.ID })">
+                    <img src="~/File?id=@Html.DisplayFor(modelItem => item.Unidad6.Personaje.IconoID)" />
+                </a>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EquipoID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EquipoID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EquipoID })
+            </td>
+        </tr>
+    }
+
+</table>

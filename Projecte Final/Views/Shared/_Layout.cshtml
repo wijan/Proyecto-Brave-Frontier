@@ -1,44 +1,171 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="@Url.Content("/Themes/janux/css/bootstrap.min.css")" />
+    @Styles.Render("~/Themes/janux.css")
+    @Styles.Render("~/Themes/janux-bootstrap")
+    @Styles.Render("~/Content/select2css")
+    @Styles.Render("~/Content/font-awesome.min.css")
+    @Styles.Render("~/Content/bootstrap-social.css")
+    <link href="@Url.Content("~/Content/BraveFrontier.css")" rel="stylesheet" type="text/css" />
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+    <!-- start: Header -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+                    <span class="icon-bar">Hola</span>
+                    <span class="icon-bar">Hola</span>
+                    <span class="icon-bar">Hola</span>
+                </a>
+                <a class="brand" href="@Url.Action("Index","Home")"><span>BraveFrontierTeams</span></a>
+
+                <!-- start: Header Menu -->
+                <div class="nav-no-collapse header-nav">
+                    <ul class="nav pull-right">
+
+                        <li class="dropdown">
+                            @if (Request.IsAuthenticated)
+                            {
+                                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <i class="halflings-icon white user"></i>@User.Identity.GetUserName()
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        @if (User.IsInRole("Root"))
+                                        {
+                                            <li>
+                                                @Html.ActionLink("Control Roles", "ManageUserRoles", "Roles")
+                                            </li>
+                                        }
+                                        <li><a href="#"><i class="halflings-icon user"></i>@Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</a></li>
+                                        <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="halflings-icon off"></i>Log off</a></li>
+                                    </ul>
+                                }
+                            }
+                            else
+                            {
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li>@Html.ActionLink("Registro", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                                    <li>@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                                </ul>
+                            }
+                        </li>
+
+                        <!-- start: User Dropdown -->
+                        <!-- end: User Dropdown -->
+                    </ul>
+                </div>
+                <!-- end: Header Menu -->
+
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <!-- start: Header -->
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    <div class="container-fluid-full">
+        <div class="row-fluid">
+
+            <!-- start: Main Menu -->
+            <div id="sidebar-left" class="span2">
+                <div class="nav-collapse sidebar-nav">
+                    <ul class="nav nav-tabs nav-stacked main-menu">
+                        <li><a href="@Url.Action("Index","Personajes")"><i class="icon-list-alt"></i><span class="hidden-tablet"> Lista Personajes</span></a></li>
+                        <li><a href="@Url.Action("Index","Esferas")"><i class="icon-circle-blank"></i><span class="hidden-tablet"> Lista Esferas</span></a></li>
+                        <li><a href="@Url.Action("Index","Objetoes")"><i class="icon-tint"></i><span class="hidden-tablet"> Objeto</span></a></li>
+                        <li>
+                            <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Mi Cuenta</span><span class="label label-important"> 3 </span></a>
+                            <ul>
+                                <li><a class="submenu" href="@Url.Action("Index","Unidads")"><i class="fa fa-users"></i><span class="hidden-tablet"> Mis Unidades</span></a></li>
+                                <li><a class="submenu" href="@Url.Action("Index","misEsferas")"><i class="icon-list"></i><span class="hidden-tablet"> Mis Esferas</span></a></li>
+                                <li><a class="submenu" href="@Url.Action("Index","Equipoes")"><i class="fa fa-align-justify"></i><span class="hidden-tablet"> Mis Equipos</span></a></li>
+                            </ul>
+                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li>
+                                <a class="dropmenu" href="#"><i class="icon-cogs"></i><span class="hidden-tablet"> Administración</span><span class="label label-important"> 3 </span></a>
+                                <ul>
+                                    <li>
+                                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Datos Personajes</span><span class="label label-important"> 3 </span></a>
+                                        <ul>
+                                            <li><a class="submenu" href="@Url.Action("Index","Personajes")"><i class="icon-list-alt"></i><span class="hidden-tablet"> Lista Personajes</span></a></li>
+                                            <li><a class="submenu" href="@Url.Action("Index","Stats")"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Stats</span></a></li>
+                                            <li><a class="submenu" href="@Url.Action("Index","LS")"><i class="icon-gears"></i><span class="hidden-tablet"> LS</span></a></li>
+                                            <li><a class="submenu" href="@Url.Action("Index","ES")"><i class="icon-plus"></i><span class="hidden-tablet"> ES</span></a></li>
+                                            <li><a class="submenu" href="@Url.Action("Index","BB")"><i class="icon-bolt"></i><span class="hidden-tablet"> BB</span></a></li>
+                                            <li><a class="submenu" href="@Url.Action("Index","Efectos")"><i class="icon-sitemap"></i><span class="hidden-tablet"> Efectos</span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Esferas y Objetos</span><span class="label label-important"> 3 </span></a>
+                                        <ul>
+                                            <li><a class="submenu" href="@Url.Action("Index","EfectoEsferas")"><i class="icon-upload"></i><span class="hidden-tablet"> Efectos Esfera</span></a></li>
+                                            <li><a class="submenu" href="@Url.Action("Index","Esfera")"><i class="icon-list"></i><span class="hidden-tablet"> Esferas</span></a></li>
+                                            <li><a class="submenu" href="@Url.Action("Index","Objetoes")"><i class="icon-tint"></i><span class="hidden-tablet"> Objetos</span></a></li>
+                                            <li><a class="submenu" href="@Url.Action("Index","Crafetoes")"><i class="icon-beaker"></i><span class="hidden-tablet"> Crafteos</span></a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        @if (User.IsInRole("Root"))
+                        {
+                            <li>
+                                <a class="dropmenu" href="#"><i class="icon-cog"></i><span class="hidden-tablet"> Configuración básica</span><span class="label label-important"> 3 </span></a>
+                                <ul>
+                                    <li><a class="submenu" href="@Url.Action("Index","Elementoes")"><i class="icon-renren"></i><span class="hidden-tablet"> Elementos</span></a></li>
+                                    <li><a class="submenu" href="@Url.Action("Index","Generoes")"><i class="fa fa-venus-mars"></i><span class="hidden-tablet"> Géneros</span></a></li>
+                                    <li><a class="submenu" href="@Url.Action("Index","GrupalBBs")"><i class="fa fa-users"></i><span class="hidden-tablet"> Grupal BB</span></a></li>
+                                    <li><a class="submenu" href="@Url.Action("Index","RamaBBs")"><i class="fa fa-random"></i><span class="hidden-tablet"> Rama BB</span></a></li>
+                                    <li><a class="submenu" href="@Url.Action("Index","TipoBBs")"><i class="fa fa-tasks"></i><span class="hidden-tablet"> Tipo BB</span></a></li>
+                                    <li><a class="submenu" href="@Url.Action("Index","TipoEsferas")"><i class="fa fa-sliders"></i><span class="hidden-tablet"> Tipos Esfera</span></a></li>
+                                    <li><a class="submenu" href="@Url.Action("Index","TipoStats")"><i class="fa fa-sort-numeric-asc"></i><span class="hidden-tablet"> Tipos Stat</span></a></li>
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <!-- end: Main Menu -->
+
+            <noscript>
+                <div class="alert alert-block span10">
+                    <h4 class="alert-heading">Warning!</h4>
+                    <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+                </div>
+            </noscript>
+
+            <!-- start: Content -->
+            <div id="content" class="span10">
+                @RenderBody()
+            </div>
+            <!--/#content.span10-->
+        </div><!--/fluid-row-->
+    </div>
+    <div class="clearfix"></div>
+
+    <footer>
+
+        <p>
+            <span style="text-align:left;float:left">&copy; 2016 - Wijan Ruiz - BraveFrontierTeams</span>
+
+        </p>
+
+    </footer>
+    @Scripts.Render("~/bundles/select2js")
+    @Scripts.Render("~/Themes/janux.js")
     @RenderSection("scripts", required: false)
 </body>
 </html>

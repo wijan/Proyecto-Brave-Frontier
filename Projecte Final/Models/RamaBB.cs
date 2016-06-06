@@ -11,7 +11,7 @@ namespace Projecte_Final.Models
         //Tipo del BB (Heal, Supp, Atk)
         [Key]
         public int ID { get; set; }
-        public String Nombre { get; set; }
+        public String NombreRamaBB { get; set; }
         public virtual ICollection<BB> BBRama { get; set; }
         //Comentario de prueba de edicion git.
     }

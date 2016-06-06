@@ -11,7 +11,7 @@ namespace Projecte_Final.Models
         //Tipo de esfera; stats, crits, heal, def, etc...
         [Key]
         public int ID { get; set; }
-        public string Nombre { get; set; }
+        public string NombreTipoEsfera { get; set; }
         public virtual ICollection<Esfera> Esferas { get; set; }
     }
 }

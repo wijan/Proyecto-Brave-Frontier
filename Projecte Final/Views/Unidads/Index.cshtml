@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Projecte_Final.Models.Unidad>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="row">
+    @{ int caselles = 0;}
+    @foreach (var item in Model)
+    {
+        caselles++;
+        <div class="hero col-sm-2">
+            <!--nova casella-->
+            <a href="@Url.Action("Details", "Unidads", new { id = item.ID })">
+                <img src="~/File?id=@Html.DisplayFor(modelItem => item.Personaje.IconoID)" />
+            </a>
+            <p>@Html.DisplayFor(modelItem => item.Personaje.Nombre)</p>
+            @if (@item.Tipo != null)
+            {
+                <img src="~/images/Icono_@(item.Tipo.Tipo).png" />
+            }
+            
+            <!--fi casella-->
+        </div>
+        if (caselles % 6 == 0)
+        {
+            <div class="clearfix"></div>
+        }
+
+
+    }
+</div>

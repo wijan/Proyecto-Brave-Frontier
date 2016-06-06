@@ -9,8 +9,10 @@ namespace Projecte_Final.Models
     public class ES
     {
         [Key]
-        public int ID { get; set; }
-        public int Desc { get; set; }
-        public virtual ICollection<Personaje> Personajes { get; set; }
+        public int ESID { get; set; }
+        public String Nombre { get; set; }
+        public String Desc { get; set; }
+        public int PersonajeID { get; set; }
+        public virtual Personaje Personaje { get; set; }
     }
 }

@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "AsignarEsfera";
+}
+
+<h2>AsignarEsfera</h2>
+<div class="row">
+    @foreach (var item in ViewBag.misEsferitas)
+    {
+        <div class="hero col-sm-2">
+            <!--nova casella-->
+            @ViewBag.nEsfera
+            <a href="@Url.Action("AsignacionEsfera", "Unidads", new { idEsfera = item.ID, nEsfera=ViewBag.nEsfera, idUnidad=ViewBag.idUnidad })">
+                <img src="~/File?id=@item.Esfera.IconaID" />
+            </a>
+            <p>@item.Esfera.NomObjeto</p>
+            <!--fi casella-->
+        </div>
+
+
+    }
+</div>
+
+
+
+

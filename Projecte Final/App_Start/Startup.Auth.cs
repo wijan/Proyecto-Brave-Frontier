@@ -63,6 +63,16 @@ namespace Projecte_Final
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+            app.UseFacebookAuthentication(
+               appId: "993098450760028",
+               appSecret: "190936f2397aa22d139c52f0e0ff111d");
+
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "324298262641-5jo2blffvn0022qffg52p7pdn6gqqc74.apps.googleusercontent.com",
+                ClientSecret = "KBb08r7zNz08kjeYkryNIcaa"
+            });
         }
     }
 }

@@ -1,0 +1,32 @@
+﻿@model Projecte_Final.Models.Unidad
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Selecciona uno de los personajes para crear a tu unidad</h2>
+
+
+<div class="row">
+    @foreach (var item in ViewBag.personajes)
+    {
+        <div class="hero col-sm-2">
+            <!--nova casella-->
+            <a href="@Url.Action("CrearUnidad", "Unidads", new { id = item.Numero })">
+                <img src="~/File?id=@item.IconoID" />
+            </a>
+            <p>No.@item.Numero</p>
+            <!--fi casella-->
+        </div>
+
+
+    }
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

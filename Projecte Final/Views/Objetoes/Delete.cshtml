@@ -1,0 +1,56 @@
+﻿@model Projecte_Final.Models.Objeto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Objeto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Crafteo.Craft)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Crafteo.Craft)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Icona.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Icona.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomObjeto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomObjeto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

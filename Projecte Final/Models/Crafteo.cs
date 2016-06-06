@@ -9,7 +9,7 @@ namespace Projecte_Final.Models
     public class Crafteo
     {
         [Key]
-        public int ID { get; set; }
+        public int Craft { get; set; }
         public ICollection<Objeto> Objetos { get; set; }
         //public int ObjetoID { get; set; }
         public virtual Objeto Objeto { get; set; }

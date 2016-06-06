@@ -1,0 +1,72 @@
+﻿@model Projecte_Final.Models.Stats
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Stats</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Personaje.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personaje.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoPersonaje.Tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoPersonaje.Tipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ataque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ataque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Defensa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Defensa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Recuperacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Recuperacion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 
 namespace Projecte_Final.Models
 {
@@ -13,12 +15,14 @@ namespace Projecte_Final.Models
 
         //Datos generales
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Numero { get; set; }
         public String Nombre { get; set; }
         public int NivelMax { get; set; }
         public int Estrellas { get; set; }
         public int Coste { get; set; }
 
+        [ScriptIgnore]
         public virtual ICollection<Stats> Stats { get; set; }
 
         //Elemento
@@ -27,6 +31,7 @@ namespace Projecte_Final.Models
 
         //Genero
         public int GeneroID { get; set; }
+        [ScriptIgnore]
         public virtual Genero Genero { get; set; }
 
 
@@ -35,18 +40,8 @@ namespace Projecte_Final.Models
         public int NHits { get; set; }
         public int DC { get; set; }
 
-
-        //BB
-        public int? BBID { get; set; }
-        public virtual BB BB { get; set; }
-
-        ////SBB
-        public int? SBBID { get; set; }
-        public virtual BB SBB { get; set; }
-
-        ////UBB
-        public int? UBBID { get; set; }
-        public virtual BB UBB { get; set; }
+        [ScriptIgnore]
+        public virtual ICollection<BB> BBs { get; set; }
 
 
         //Datos IMPS
@@ -56,37 +51,56 @@ namespace Projecte_Final.Models
         public int ImpRec { get; set; }
 
         
-        //Descripciones extras
-        public int? LSID { get; set; }
-        public virtual LS LS { get; set; }
-
-        public int? ESID { get; set; }
-        public virtual ES ES { get; set; }
 
 
         //Pre i post evoluciones
         public int? PreEvoNum { get; set; }
+        [ScriptIgnore]
         public virtual Personaje PreEvo { get; set; }
+        
         public int? PostEvoNum { get; set; }
+        [ScriptIgnore]
         public virtual Personaje PostEvo { get; set; }
 
 
         //Imágenes
-        [NotMapped]
-        public HttpPostedFileBase Imagen { get; set; }
-        [NotMapped]
-        public HttpPostedFileBase Icono { get; set; }
-        [NotMapped]
-        public HttpPostedFileBase Gif { get; set; }
-        [NotMapped]
-        public HttpPostedFileBase GifAtaque { get; set; }
+        public int? ImagenID { get; set; }
+        [ScriptIgnore]
+        public virtual File Imagen { get; set; }
+        public int? IconoID { get; set; }
+        [ScriptIgnore]
+        public virtual File Icono { get; set; }
+        public int? GifID { get; set; }
+        [ScriptIgnore]
+        public virtual File Gif { get; set; }
+        public int? GifAtaqueID { get; set; }
+        [ScriptIgnore]
+        public virtual File GifAtaque { get; set; }
 
+        public Boolean Healer { get; set; }
+        public Boolean Mitigador { get; set; }
+        public Boolean Antiestados { get; set; }
+        public Boolean BBFill{ get; set; }
+        public Boolean AumentoDrop{ get; set; }
+        public Boolean Sparker{ get; set; }
+        public Boolean Criticos{ get; set; }
+        public Boolean AumentoStats { get; set; }
+        public Boolean Nuker { get; set; }
+
+        public int? IAArena { get; set; }
+
+        //Propiedad de navegacion a ES
+        public virtual ICollection<ES> ES { get; set; }
+        public virtual ICollection<LS> LS { get; set; }
 
         //Propiedad de navegacion propia
+        [ScriptIgnore]
         public virtual ICollection<Personaje> PersonajesPost { get; set; }
+        [ScriptIgnore]
         public virtual ICollection<Personaje> PersonajesPre { get; set; }
 
         //Propiedad de navegacion a Unidad
+        [ScriptIgnore]
         public virtual ICollection<Unidad> Unidades { get; set; }
     }
 }

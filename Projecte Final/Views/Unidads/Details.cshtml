@@ -1,0 +1,167 @@
+﻿@model Projecte_Final.Models.Unidad
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div id="unidadDetails" background="/File?id=@(Model.Personaje.ImagenID)" class="container row">
+    @Html.ActionLink("Lista Unidades", "Index", "Unidads", new { @class = "btn btn-primary glyphicon glyphicon-chevron-left" })
+    <div class="clearfix"></div>
+    <div id="tituloUnidad" class="col-sm-6 row">
+        <strong>Unidad No.@Model.Personaje.Numero</strong>
+        <div id="estrellas">
+            @for (var i = 0; i < Model.Personaje.Estrellas; i++)
+            {
+                <img src="~/images/Estrella.png" width="25" height="25" />
+            }
+        </div>
+        <br />
+        <img src="~/File?id=@Html.DisplayFor(modelItem => Model.Personaje.Elemento.IconoID)" width="30px" height="auto" />
+        <strong>@Model.Personaje.Nombre</strong>
+    </div>
+    <div class="clearfix"></div>
+    <div id="stats" class="col-xs-6 col-sm-5 container">
+        <div class="cajasUnidad col-xs-12 col-sm-8">
+            <span id="tipoUnidad">COSTE</span>
+            <span class="statUnidad stat text-center">@Model.Personaje.Coste</span>
+        </div>
+        @if (Model.TipoID != null)
+        {
+            <div class="cajasUnidad col-xs-12 col-sm-8">
+                <strong class="titulilloUnidad">TIPO</strong>
+                <span id="tipoUnidad">@Model.Tipo.Tipo</span>
+            </div>
+            <div class="clearfix"></div>
+            if (ViewBag.stats != null)
+            {
+
+
+                <div class="cajasUnidad col-xs-8 col-sm-6">
+                    <strong class="titulilloUnidad">HP</strong>
+                    <span id="hp" class="statUnidad stat text-center" data-stat="@ViewBag.stats.Hp" data-imp="@Model.Personaje.ImpHP"> @ViewBag.stats.Hp</span>
+                </div>
+                <div class="clearfix"></div>
+                <div class="cajasUnidad col-xs-8 col-sm-6">
+                    <strong class="titulilloUnidad">ATK</strong>
+                    <span id="atk" class="statUnidad stat text-center" data-stat="@ViewBag.stats.Ataque" data-imp="@Model.Personaje.ImpAtk"> @ViewBag.stats.Ataque</span>
+                </div>
+                <div class="clearfix"></div>
+                <div class="cajasUnidad col-xs-8 col-sm-6">
+                    <strong class="titulilloUnidad">DEF</strong>
+                    <span id="def" class="statUnidad stat text-center" data-stat="@ViewBag.stats.Defensa" data-imp="@Model.Personaje.ImpDef"> @ViewBag.stats.Defensa</span>
+                </div>
+                <div class="clearfix"></div>
+                <div class="cajasUnidad col-xs-8 col-sm-6">
+                    <strong class="titulilloUnidad">REC</strong>
+                    <span id="rec" class="statUnidad stat text-center" data-stat="@ViewBag.stats.Recuperacion" data-imp="@Model.Personaje.ImpRec"> @ViewBag.stats.Recuperacion</span>
+                </div>
+            }
+            else
+            {
+                @Html.ActionLink("Añadir Stats", "CreateStatsUnidad", "Stats", new { personajeID = Model.Personaje.Numero, tipoPersonajeID = Model.TipoID, idUnidad = Model.ID }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+            }
+        }
+        else
+        {
+            @Html.ActionLink("Asignar Tipo Señor", "EditarTipo", "Unidads", new { idTipo = 1, idUnidad = Model.ID }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+            <div class="clearfix"></div>
+            @Html.ActionLink("Asignar Tipo Alma", "EditarTipo", "Unidads", new { idTipo = 2, idUnidad = Model.ID }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+            <div class="clearfix"></div>
+            @Html.ActionLink("Asignar Tipo Rompedor", "EditarTipo", "Unidads", new { idTipo = 3, idUnidad = Model.ID }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+            <div class="clearfix"></div>
+            @Html.ActionLink("Asignar Tipo Guardián", "EditarTipo", "Unidads", new { idTipo = 4, idUnidad = Model.ID }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+            <div class="clearfix"></div>
+            @Html.ActionLink("Asignar Tipo Protector", "EditarTipo", "Unidads", new { idTipo = 5, idUnidad = Model.ID }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+        }
+        <div class="clearfix"></div>
+        @if (Model.Esfera1ID != null)
+            {
+            <div class="cajasUnidad col-xs-12">
+                <img class="esferaUnidad" src="/File?id=@Model.Esfera1.Esfera.IconaID" />
+                <span class="statUnidad text-center"> @Model.Esfera1.Esfera.NomObjeto</span>
+            </div>
+                <div class="clearfix"></div>
+        }
+        else
+        {
+            @Html.ActionLink("Asignar Esfera 1", "AsignarEsfera", "Unidads", new { nEsfera = 1, idUnidad = Model.ID }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+        }
+        @if (Model.Esfera2ID != null)
+            {
+            <div class="cajasUnidad col-xs-12">
+                <img class="esferaUnidad" src="/File?id=@Model.Esfera2.Esfera.IconaID" />
+                <span class="statUnidad text-center"> @Model.Esfera2.Esfera.NomObjeto</span>
+            </div>
+        }
+        else
+        {
+            @Html.ActionLink("Asignar Esfera 2", "AsignarEsfera", "Unidads", new { nEsfera = 2, idUnidad = Model.ID }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+        }
+
+    </div>
+    <div id="imagenUnidad" class="col-sm-6 col-xs-6">
+        <img class="img-responsive" src="/File?id=@(Model.Personaje.ImagenID)" />
+    </div>
+    <div class="clearfix"></div>
+    @if (ViewBag.Stats != null)
+    {
+        <div id="activarImps">
+            <button id="botonImps" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-up"></span>Activar Imps</button>
+        </div>
+    }
+    <div class="clearfix"></div>
+    
+    <br />
+    @if (ViewBag.BB == null && ViewBag.LS == null)
+    {
+        <a href="@Url.Action("Create","BBs", new { personajeID = @Model.Personaje.Numero, TipoBBID=1 }) " class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Crear BB</a>
+        <a href="@Url.Action("Create","LS", new { personajeID = @Model.Personaje.Numero}) " class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Crear LS</a>
+    }
+    else if (ViewBag.BB == null)
+    {
+        <a href="@Url.Action("Create","BBs", new { personajeID = @Model.Personaje.Numero, TipoBBID=1 }) " class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Crear BB</a>
+    }
+    else if (ViewBag.LS == null)
+    {
+        <a href="@Url.Action("Create","LS", new { personajeID = @Model.Personaje.Numero}) " class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Crear LS</a>
+    }
+    else
+    {
+        <div id="cambiar">
+            <button id="cambiar" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-right"></span>Cambiar</button>
+        </div>
+        <div id="descripciones" class="col-xs-12">
+            <div id="superiorLS" class="superior col-xs-12">
+                <div id="labelLS" class="col-xs-4 labelDesc label-warning">Leader Skill</div>
+                <div id="LSNombre" class="col-xs-8 Nombre">
+                    @ViewBag.LS.Nombre
+                </div>
+            </div>
+            <div id="LSDesc" class="col-xs-12 Desc">@ViewBag.LS.Desc</div>
+            <div id="superiorBB" class="superior col-xs-12">
+                <div id="labelBB" class="col-xs-4 labelDesc label-primary">Brave Burst</div>
+                <div id="BBNombre" class="col-xs-8 Nombre">
+                    @ViewBag.BB.NombreBB
+                </div>
+            </div>
+            <div id="BBDescr" class="col-xs-12 Desc">
+                @ViewBag.BB.BBDesc
+            </div>
+        </div>
+    }
+
+
+
+
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+
+</p>
+
+@section scripts{
+    <script src="~/Scripts/modal.js"></script>
+}

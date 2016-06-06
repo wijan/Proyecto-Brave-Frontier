@@ -11,6 +11,7 @@ namespace Projecte_Final.Models
         [Key]
         public int EfectoID { get; set; }
         public String Descripcion { get; set; }
-        public virtual ICollection<Esfera> Esferas { get; set; }
+        public int EsferaID { get; set; }
+        public virtual Esfera Esfera { get; set; }
     }
 }

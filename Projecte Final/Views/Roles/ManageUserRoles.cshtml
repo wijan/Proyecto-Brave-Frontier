@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "ManageUserRoles";
+}
+
+@if (ViewBag.ResultMessage != null)
+{
+    <div class="panel panel-@ViewBag.TypeMessage"> 
+        <div class=panel-heading> 
+            <h3 class=panel-title>
+                @if (ViewBag.TypeMessage == "danger")
+                {
+                    <span>Error!</span>
+                }
+                else if(ViewBag.TypeMessage == "warning")
+                {
+                    <span>Atención!</span>
+                }
+                else
+                {
+                    <span>Correcto!</span>
+                }
+            </h3> 
+        </div> 
+        <div class=panel-body> @ViewBag.ResultMessage </div> 
+    </div>
+}
+
+<h2>Manage User Roles</h2>
+@Html.ActionLink("Crear Nuevo Rol", "Create") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
+<hr />
+
+<h2>Añadir Rol a Usuario</h2>
+
+
+
+@using (Html.BeginForm("RoleAddToUser", "Roles"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <p>
+        Nombre de Usuario : @Html.TextBox("UserName")
+        Rol: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
+
+    </p>
+
+    <input type="submit" value="Save" />
+}
+<hr />
+<h3>Obtener los Roles del Usuario</h3>
+@using (Html.BeginForm("GetRoles", "Roles"))
+{
+    @Html.AntiForgeryToken()
+    <p>
+        Username : @Html.TextBox("UserName")
+        <input type="submit" value="Obtener Roles del Usuario" />
+    </p>
+}
+
+@if (ViewBag.RolesForThisUser != null)
+{
+    <div style="background-color:yellow;">
+        <h3>Roles for this user </h3>
+        <ol>
+            @foreach (string s in ViewBag.RolesForThisUser)
+            {
+                <li>@s</li>
+            }
+        </ol>
+    </div>
+}
+
+<hr />
+<h3>Eliminar Usuario del Rol</h3>
+
+@using (Html.BeginForm("DeleteRoleForUser", "Roles"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <p>
+        Nombre de Usuario : @Html.TextBox("UserName")
+        Rol: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
+
+    </p>
+
+    <input type="submit" value="Eliminar Usuario del Rol" />
+}

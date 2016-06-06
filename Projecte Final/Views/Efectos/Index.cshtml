@@ -1,0 +1,303 @@
+﻿@model IEnumerable<Projecte_Final.Models.Efectos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BB.NombreBB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AtkUp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DefUp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecUp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HpUp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CritRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CritDmg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BBDmg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SparkDmg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CargaBB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CargaBBTurno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CargaBBRecibir)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VelocidadBB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CargaBBSpark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CargaOD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mitigacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Barrera)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Heal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HealTurno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DropCB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DropCC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DropItems)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DañoAlAfligir)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IgnDef)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AumentoHits)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Revivir)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BBAtacar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BBCritico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReduccionCosteBB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReduccionUsoBB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecargaGuard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DropZel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DropKarma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EfectividadCC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReduccionDmgGuard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MitigacionElemental)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadosAlterados)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Antiestados)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AtkDown)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DefDown2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VulnerabilidadSpark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AñadirElementos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DebilidadElemental)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Angel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReduccionDaño)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BB.NombreBB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AtkUp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DefUp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecUp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HpUp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CritRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CritDmg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BBDmg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SparkDmg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CargaBB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CargaBBTurno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CargaBBRecibir)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VelocidadBB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CargaBBSpark)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CargaOD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mitigacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Barrera)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Heal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HealTurno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DropCB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DropCC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DropItems)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DañoAlAfligir)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IgnDef)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AumentoHits)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Revivir)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BBAtacar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BBCritico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReduccionCosteBB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReduccionUsoBB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecargaGuard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DropZel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DropKarma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EfectividadCC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReduccionDmgGuard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MitigacionElemental)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadosAlterados)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Antiestados)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AtkDown)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DefDown2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VulnerabilidadSpark)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AñadirElementos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DebilidadElemental)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Angel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReduccionDaño)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EfectoID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EfectoID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EfectoID })
+        </td>
+    </tr>
+}
+
+</table>

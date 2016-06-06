@@ -1,0 +1,58 @@
+﻿@model Projecte_Final.Models.Esfera
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Esfera</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Crafteo.Craft)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Crafteo.Craft)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Icona.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Icona.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomObjeto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomObjeto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoEsfera.NombreTipoEsfera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoEsfera.NombreTipoEsfera)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
